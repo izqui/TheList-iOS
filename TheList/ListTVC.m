@@ -9,6 +9,10 @@
 #import "ListTVC.h"
 #import "AFNetworking.h"
 #import "Post.h"
+#import "ZYInstapaperActivity.h"
+#import "ZYInstapaperActivityItem.h"
+#import "ARChromeActivity.h"
+#import "BrowserVC.h"
 
 @interface ListTVC ()
 
@@ -22,9 +26,19 @@
     if (self) {
         // Custom initialization
         
+        pres = NO;
         longPress = ^(Post *p){
             
-            NSLog(@"Long press: %@", p.title);
+            if (!pres){
+                pres = YES;
+                //ZYInstapaperActivityItem *item = [[ZYInstapaperActivityItem alloc] initWithURL:[NSURL URLWithString:p.url]];
+                //item.title = p.title;
+                UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[p.title, [NSURL URLWithString:p.url]] applicationActivities:@[[[ARChromeActivity alloc] init],[ZYInstapaperActivity instance]]];
+                [self presentViewController:activityCtr animated:YES completion:^{
+                    pres = NO;
+                }];
+            }
+            
         };
     }
     return self;
@@ -34,6 +48,10 @@
 {
     self.title = [@"The List" uppercaseString];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UIRefreshControl *rf = [[UIRefreshControl alloc] init];
+    [rf addTarget:self action:@selector(get) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = rf;
     [self get];
     [super viewDidLoad];
 
@@ -47,8 +65,9 @@
 -(void)get{
     
     NSURL *url = [NSURL URLWithString:@"http://thelist.io/posts.json"];
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:[NSURLRequest requestWithURL:url] success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         if (JSON){
             
             NSMutableArray *_posts = [NSMutableArray array];
@@ -59,11 +78,12 @@
                 [_posts addObject:p];
             }
             posts = _posts;
+            [self.refreshControl endRefreshing];
             [self.tableView reloadData];
             
         }
         else {
-            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             [self error:@"Request error. No response."];
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -108,6 +128,7 @@
     
     Post *p = posts[indexPath.row];
     [cell setPost:p];
+    
     // Configure the cell...
     
     return cell;
@@ -159,14 +180,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    NSLog(@"%@", posts[indexPath.row]);
+    BrowserVC *b = [[BrowserVC alloc] initWithPost:posts[indexPath.row]];
+    [self.navigationController pushViewController:b animated:YES];
 }
 
 @end

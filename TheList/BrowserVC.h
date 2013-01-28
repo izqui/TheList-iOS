@@ -1,5 +1,5 @@
 //
-//  ListTVC.h
+//  BrowserVC.h
 //  TheList
 //
 //  Created by Jorge Izquierdo on 1/28/13.
@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PostCell.h"
-
-@interface ListTVC : UITableViewController
+#import "Post.h"
+@interface BrowserVC : UIViewController
 {
     
-    NSArray *posts;
-    LongPressBlock longPress;
-    BOOL pres;
+    Post *post;
+    UIWebView *wb;
 }
+- (id)initWithPost:(Post *)post;
 @end

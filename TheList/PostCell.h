@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
-typedef void (^LongPressBlock) (Post *p);
+typedef void (^LongPressBlock) ();
 
 @interface PostCell : UITableViewCell
 {

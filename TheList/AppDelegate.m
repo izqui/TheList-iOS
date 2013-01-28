@@ -23,7 +23,8 @@
     UINavigationController *n = [[UINavigationController alloc] initWithRootViewController:listvc];
     self.window.rootViewController = n;
     
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor blueColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor:[UIColor colorWithRed:.90 green:.29 blue:.28 alpha:1], UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetZero], UITextAttributeFont:[UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
     return YES;
 }

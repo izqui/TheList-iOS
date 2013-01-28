@@ -37,7 +37,6 @@
         p.font = [UIFont fontWithName:@"ProximaNova-Regular" size:10];
         p.text = @"points";
         
-        
         title.backgroundColor = p.backgroundColor = url.backgroundColor = points.backgroundColor = [UIColor clearColor];
         
         UIView *r = [[UIView alloc] initWithFrame:CGRectMake(0, 65.5, 320, .5)];
@@ -48,11 +47,21 @@
         [self addSubview:url];
         [self addSubview:p];
         
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        self.userInteractionEnabled = YES;
+        UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(lp)];
+        [self addGestureRecognizer:lp];
+        
         
     }
     return self;
 }
-
+-(void)lp{
+    
+    if (block) block(_post);
+    
+}
 - (void)setPost:(Post *)p{
     
     if (p != _post){
