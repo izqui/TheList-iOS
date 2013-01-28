@@ -7,21 +7,24 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ListTVC.h"
 @implementation AppDelegate
 
-- (void)dealloc
-{
-    [_window release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    ListTVC *listvc = [[ListTVC alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *n = [[UINavigationController alloc] initWithRootViewController:listvc];
+    self.window.rootViewController = n;
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor:[UIColor colorWithRed:.90 green:.29 blue:.28 alpha:1], UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetZero], UITextAttributeFont:[UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
     return YES;
 }
 

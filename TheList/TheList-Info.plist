@@ -20,6 +20,8 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -33,6 +35,13 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ProximaNova-RegItalic.otf</string>
+		<string>ProximaNova-Regular.otf</string>
+		<string>ProximaNova-Bold.otf</string>
+		<string>ProximaNova-Semibold.otf</string>
 	</array>
 </dict>
 </plist>
