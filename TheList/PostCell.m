@@ -22,6 +22,7 @@
         title.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:17];
         title.textColor = [UIColor blackColor];
         
+        
         url = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(title.frame), CGRectGetMaxY(title.frame)+5, CGRectGetWidth(title.frame), 10)];
         url.font = [UIFont italicSystemFontOfSize:9];
         url.textColor = [UIColor grayColor];
@@ -49,16 +50,23 @@
             t.backgroundColor = [AppDelegate gray];
             [self addSubview:t];
         }
+        
+        title.highlightedTextColor = url.highlightedTextColor = points.highlightedTextColor = p.highlightedTextColor = [UIColor whiteColor];
+        
         [self addSubview:points];
         [self addSubview:title];
         [self addSubview:url];
         [self addSubview:p];
         
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         
         self.userInteractionEnabled = YES;
         UILongPressGestureRecognizer *lp = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(lp)];
         [self addGestureRecognizer:lp];
+        
+        UIView *bv = [[UIView alloc] initWithFrame:self.frame];
+        bv.backgroundColor = [AppDelegate red];
+        self.selectedBackgroundView = bv;
         
         
     }

@@ -38,10 +38,21 @@
    
     
     UIBarButtonItem *s = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share)];
+    s.style = UIBarButtonItemStylePlain;
+    s.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = s;
-    self.navigationItem.backBarButtonItem.title = @"Back";
+    
+    self.view.userInteractionEnabled = YES;
+    UISwipeGestureRecognizer *sw = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pop)];
+    sw.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:sw];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+-(void)pop{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)share{

@@ -49,7 +49,7 @@
     if (self != nil) {
         
         self.title =
-        NSLocalizedString(@"Read Later", @"");
+        NSLocalizedString(@"Instapaper", @"");
         
         [self initializeNavigationBar];
     }
@@ -59,6 +59,7 @@
 
 - (void)viewDidLoad {
     
+    self.view.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
     
     [self centerActivityIndicatorView];
@@ -100,6 +101,7 @@
                                      style:UIBarButtonItemStyleBordered
                                     target:self
                                     action:@selector(cancelButtonTapped)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
 }
 
 - (void)initializeItemDetails {

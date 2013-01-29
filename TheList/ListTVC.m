@@ -13,7 +13,7 @@
 #import "ZYInstapaperActivityItem.h"
 #import "ARChromeActivity.h"
 #import "BrowserVC.h"
-
+#import "AppDelegate.h"
 @interface ListTVC ()
 
 @end
@@ -47,11 +47,22 @@
 - (void)viewDidLoad
 {
     self.title = [@"The List" uppercaseString];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.navigationItem.backBarButtonItem.tintColor = [UIColor blackColor];
     UIRefreshControl *rf = [[UIRefreshControl alloc] init];
     [rf addTarget:self action:@selector(get) forControlEvents:UIControlEventValueChanged];
+    rf.tintColor = [AppDelegate red];
+    
     self.refreshControl = rf;
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    back.tintColor = [UIColor blackColor];
+    self.navigationItem.backBarButtonItem = back;
+    
+    UIBarButtonItem *ref = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(get)];
+    ref.tintColor = [UIColor blackColor];
+    self.navigationItem.leftBarButtonItem = ref;
+    
     [self get];
     [super viewDidLoad];
 

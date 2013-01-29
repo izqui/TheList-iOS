@@ -87,7 +87,8 @@
     [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"")
                                      style:UIBarButtonItemStyleBordered
                                     target:self
-                                    action:@selector(cancelButtonTapped)];
+                                action:@selector(cancelButtonTapped)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
 }
 
 - (void)cancelButtonTapped {
