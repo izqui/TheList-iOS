@@ -7,10 +7,10 @@
 //
 
 #import "PostCell.h"
-
+#import "AppDelegate.h"
 @implementation PostCell
 
-- (id)initWithIdentifier:(NSString *)reuseIdentifier longPressBlock:(LongPressBlock)b
+- (id)initWithIdentifier:(NSString *)reuseIdentifier longPressBlock:(LongPressBlock)b firstCell:(BOOL)f
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -19,7 +19,7 @@
         
         title = [[UILabel alloc] initWithFrame:CGRectMake(50, 6, 320-50, 42)];
         title.numberOfLines = 2;
-        title.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:18];
+        title.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:17];
         title.textColor = [UIColor blackColor];
         
         url = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(title.frame), CGRectGetMaxY(title.frame)+5, CGRectGetWidth(title.frame), 10)];
@@ -27,21 +27,28 @@
         url.textColor = [UIColor grayColor];
         
         points = [[UILabel alloc] initWithFrame:CGRectMake(4, 23, 42, 18)];
-        points.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
+        points.font = [UIFont fontWithName:@"SourceSansPro-Bold" size:18];
         points.textColor = title.textColor;
         points.textAlignment = NSTextAlignmentCenter;
         
         UILabel *p = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(points.frame), CGRectGetMaxY(points.frame)+1, CGRectGetWidth(points.frame), 12)];
         p.textAlignment = NSTextAlignmentCenter;
         p.textColor = [UIColor blackColor];
-        p.font = [UIFont fontWithName:@"ProximaNova-Regular" size:10];
+        p.font = [UIFont fontWithName:@"SourceSansPro-Regular" size:10];
         p.text = @"points";
         
         title.backgroundColor = p.backgroundColor = url.backgroundColor = points.backgroundColor = [UIColor clearColor];
         
         UIView *r = [[UIView alloc] initWithFrame:CGRectMake(0, 65.5, 320, .5)];
-        r.backgroundColor = [UIColor colorWithRed:.90 green:.29 blue:.28 alpha:1];
+        r.backgroundColor = [AppDelegate gray];
         [self addSubview:r];
+        
+        if (f){
+            
+            UIView *t = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, .5)];
+            t.backgroundColor = [AppDelegate gray];
+            [self addSubview:t];
+        }
         [self addSubview:points];
         [self addSubview:title];
         [self addSubview:url];

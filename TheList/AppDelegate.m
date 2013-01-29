@@ -23,12 +23,22 @@
     UINavigationController *n = [[UINavigationController alloc] initWithRootViewController:listvc];
     self.window.rootViewController = n;
     
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor blueColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor:[UIColor colorWithRed:.90 green:.29 blue:.28 alpha:1], UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetZero], UITextAttributeFont:[UIFont fontWithName:@"ProximaNova-Bold" size:20]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor:[AppDelegate red], UITextAttributeTextShadowOffset:[NSValue valueWithUIOffset:UIOffsetZero], UITextAttributeFont:[UIFont fontWithName:@"SourceSansPro-Bold" size:20]}];
     return YES;
 }
 
++(UIColor *)red{
+    
+    return [UIColor colorWithRed:1 green:.27 blue:.27 alpha:1];
+    
+}
++(UIColor *)gray{
+    
+    return [UIColor colorWithRed:.66 green:.66 blue:.66 alpha:1];
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

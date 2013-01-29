@@ -124,7 +124,7 @@
 {
     static NSString *CellIdentifier = @"Cell";
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) cell = [[PostCell alloc] initWithIdentifier:CellIdentifier longPressBlock:longPress];
+    if (!cell) cell = [[PostCell alloc] initWithIdentifier:CellIdentifier longPressBlock:longPress firstCell:(indexPath.row == 0)];
     
     Post *p = posts[indexPath.row];
     [cell setPost:p];

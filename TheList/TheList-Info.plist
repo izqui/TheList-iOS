@@ -26,10 +26,9 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>ProximaNova-RegItalic.otf</string>
-		<string>ProximaNova-Regular.otf</string>
-		<string>ProximaNova-Bold.otf</string>
-		<string>ProximaNova-Semibold.otf</string>
+		<string>SourceSansPro-Bold.otf</string>
+		<string>SourceSansPro-Regular.otf</string>
+		<string>SourceSansPro-Semibold.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

@@ -18,6 +18,6 @@ typedef void (^LongPressBlock) ();
     
     UILabel *title, *url, *points;
 }
--(id)initWithIdentifier:(NSString *)reuseIdentifier longPressBlock:(LongPressBlock)b;
+- (id)initWithIdentifier:(NSString *)reuseIdentifier longPressBlock:(LongPressBlock)b firstCell:(BOOL)f;
 @property (nonatomic, strong) Post *post;
 @end

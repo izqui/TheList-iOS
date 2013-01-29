@@ -20,6 +20,8 @@
         
     
         wb = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, [UIScreen mainScreen].bounds.size.height-64)];
+        wb.scalesPageToFit = YES;
+        wb.backgroundColor = [UIColor blackColor];
         [self.view addSubview:wb];
         [wb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:p.url]]];
         

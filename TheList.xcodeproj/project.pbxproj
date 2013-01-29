@@ -22,10 +22,6 @@
 		DA6C1B2316B69CF900C0723F /* ListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6C1B2216B69CF900C0723F /* ListTVC.m */; };
 		DA6C1B2516B69E2100C0723F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6C1B2416B69E2100C0723F /* SystemConfiguration.framework */; };
 		DA6C1B2716B69E2B00C0723F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6C1B2616B69E2B00C0723F /* MobileCoreServices.framework */; };
-		DA6C1B3016B6AEBB00C0723F /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B2D16B6AEBB00C0723F /* ProximaNova-Bold.otf */; };
-		DA6C1B3116B6AEBB00C0723F /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B2E16B6AEBB00C0723F /* ProximaNova-Regular.otf */; };
-		DA6C1B3216B6AEBB00C0723F /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B2F16B6AEBB00C0723F /* ProximaNova-Semibold.otf */; };
-		DA6C1B3416B6AF2100C0723F /* ProximaNova-RegItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B3316B6AF2100C0723F /* ProximaNova-RegItalic.otf */; };
 		DA6C1B6316B6C32400C0723F /* instapaper-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B3B16B6C32400C0723F /* instapaper-ipad.png */; };
 		DA6C1B6416B6C32400C0723F /* instapaper-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B3C16B6C32400C0723F /* instapaper-ipad@2x.png */; };
 		DA6C1B6516B6C32400C0723F /* instapaper.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B3D16B6C32400C0723F /* instapaper.png */; };
@@ -52,6 +48,9 @@
 		DA6C1B8216B6CCBA00C0723F /* ARChromeActivity@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B7D16B6CCBA00C0723F /* ARChromeActivity@2x~ipad.png */; };
 		DA6C1B8316B6CCBA00C0723F /* ARChromeActivity~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6C1B7E16B6CCBA00C0723F /* ARChromeActivity~ipad.png */; };
 		DA6C1B8616B6D8DF00C0723F /* BrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6C1B8516B6D8DF00C0723F /* BrowserVC.m */; };
+		DA84EBD616B8263800BD6BAE /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA84EBD316B8263800BD6BAE /* SourceSansPro-Bold.otf */; };
+		DA84EBD716B8263800BD6BAE /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA84EBD416B8263800BD6BAE /* SourceSansPro-Regular.otf */; };
+		DA84EBD816B8263800BD6BAE /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA84EBD516B8263800BD6BAE /* SourceSansPro-Semibold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,10 +77,6 @@
 		DA6C1B2216B69CF900C0723F /* ListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTVC.m; sourceTree = "<group>"; };
 		DA6C1B2416B69E2100C0723F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DA6C1B2616B69E2B00C0723F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		DA6C1B2D16B6AEBB00C0723F /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
-		DA6C1B2E16B6AEBB00C0723F /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
-		DA6C1B2F16B6AEBB00C0723F /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
-		DA6C1B3316B6AF2100C0723F /* ProximaNova-RegItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-RegItalic.otf"; sourceTree = "<group>"; };
 		DA6C1B3B16B6C32400C0723F /* instapaper-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instapaper-ipad.png"; sourceTree = "<group>"; };
 		DA6C1B3C16B6C32400C0723F /* instapaper-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instapaper-ipad@2x.png"; sourceTree = "<group>"; };
 		DA6C1B3D16B6C32400C0723F /* instapaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instapaper.png; sourceTree = "<group>"; };
@@ -122,6 +117,9 @@
 		DA6C1B7E16B6CCBA00C0723F /* ARChromeActivity~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARChromeActivity~ipad.png"; sourceTree = "<group>"; };
 		DA6C1B8416B6D8DF00C0723F /* BrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserVC.h; sourceTree = "<group>"; };
 		DA6C1B8516B6D8DF00C0723F /* BrowserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserVC.m; sourceTree = "<group>"; };
+		DA84EBD316B8263800BD6BAE /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
+		DA84EBD416B8263800BD6BAE /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		DA84EBD516B8263800BD6BAE /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,10 +234,9 @@
 		DA6C1B2C16B6AEA800C0723F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DA6C1B2D16B6AEBB00C0723F /* ProximaNova-Bold.otf */,
-				DA6C1B2E16B6AEBB00C0723F /* ProximaNova-Regular.otf */,
-				DA6C1B3316B6AF2100C0723F /* ProximaNova-RegItalic.otf */,
-				DA6C1B2F16B6AEBB00C0723F /* ProximaNova-Semibold.otf */,
+				DA84EBD316B8263800BD6BAE /* SourceSansPro-Bold.otf */,
+				DA84EBD416B8263800BD6BAE /* SourceSansPro-Regular.otf */,
+				DA84EBD516B8263800BD6BAE /* SourceSansPro-Semibold.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -432,10 +429,6 @@
 				DA6C1B0616B69A3C00C0723F /* Default.png in Resources */,
 				DA6C1B0816B69A3C00C0723F /* Default@2x.png in Resources */,
 				DA6C1B0A16B69A3C00C0723F /* Default-568h@2x.png in Resources */,
-				DA6C1B3016B6AEBB00C0723F /* ProximaNova-Bold.otf in Resources */,
-				DA6C1B3116B6AEBB00C0723F /* ProximaNova-Regular.otf in Resources */,
-				DA6C1B3216B6AEBB00C0723F /* ProximaNova-Semibold.otf in Resources */,
-				DA6C1B3416B6AF2100C0723F /* ProximaNova-RegItalic.otf in Resources */,
 				DA6C1B6316B6C32400C0723F /* instapaper-ipad.png in Resources */,
 				DA6C1B6416B6C32400C0723F /* instapaper-ipad@2x.png in Resources */,
 				DA6C1B6516B6C32400C0723F /* instapaper.png in Resources */,
@@ -448,6 +441,9 @@
 				DA6C1B8116B6CCBA00C0723F /* ARChromeActivity@2x.png in Resources */,
 				DA6C1B8216B6CCBA00C0723F /* ARChromeActivity@2x~ipad.png in Resources */,
 				DA6C1B8316B6CCBA00C0723F /* ARChromeActivity~ipad.png in Resources */,
+				DA84EBD616B8263800BD6BAE /* SourceSansPro-Bold.otf in Resources */,
+				DA84EBD716B8263800BD6BAE /* SourceSansPro-Regular.otf in Resources */,
+				DA84EBD816B8263800BD6BAE /* SourceSansPro-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,10 +571,14 @@
 			baseConfigurationReference = 07A380998B2549B59AA10AA6 /* Pods.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jorge Izquierdo Ayuso";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jorge Izquierdo Ayuso";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TheList/TheList-Prefix.pch";
 				INFOPLIST_FILE = "TheList/TheList-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "87059094-6F3C-4023-B071-77CA0409EF68";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "87059094-6F3C-4023-B071-77CA0409EF68";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
