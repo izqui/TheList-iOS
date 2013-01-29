@@ -48,7 +48,7 @@
 
 - (void)viewDidLoad
 {
-    self.title = [@"The List" uppercaseString];
+    self.title = @"The List";
     
     self.navigationItem.backBarButtonItem.tintColor = [UIColor blackColor];
     UIRefreshControl *rf = [[UIRefreshControl alloc] init];
@@ -63,7 +63,7 @@
     
     UIBarButtonItem *ref = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(get)];
     ref.tintColor = [UIColor blackColor];
-    self.navigationItem.leftBarButtonItem = ref;
+    //self.navigationItem.leftBarButtonItem = ref;
     
     [self get];
     [super viewDidLoad];
@@ -91,6 +91,7 @@
                 [_posts addObject:p];
             }
             posts = _posts;
+            page = 2;
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
             

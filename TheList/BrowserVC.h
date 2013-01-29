@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
-@interface BrowserVC : UIViewController
+@interface BrowserVC : UIViewController <UIWebViewDelegate>
 {
     
     Post *post;

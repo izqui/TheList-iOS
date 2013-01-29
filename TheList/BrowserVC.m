@@ -22,6 +22,7 @@
         wb = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, [UIScreen mainScreen].bounds.size.height-64)];
         wb.scalesPageToFit = YES;
         wb.backgroundColor = [UIColor blackColor];
+        wb.delegate = self;
         [self.view addSubview:wb];
         [wb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:p.url]]];
         
@@ -32,6 +33,7 @@
     
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -60,6 +62,16 @@
     UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[post.title, [NSURL URLWithString:post.url]] applicationActivities:@[[[ARChromeActivity alloc] init],[ZYInstapaperActivity instance]]];
     [self presentViewController:activityCtr animated:YES completion:nil];
 
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (void)didReceiveMemoryWarning
