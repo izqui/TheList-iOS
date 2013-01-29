@@ -27,9 +27,11 @@
         // Custom initialization
         
         pres = NO;
+        page = 2;
         longPress = ^(Post *p){
             
             if (!pres){
+                
                 pres = YES;
                 //ZYInstapaperActivityItem *item = [[ZYInstapaperActivityItem alloc] initWithURL:[NSURL URLWithString:p.url]];
                 //item.title = p.title;
@@ -105,6 +107,47 @@
     
 }
 
+-(void)loadmore{
+    
+    load.text = @"Loading...";
+    NSLog(@"Getting number: %d", page);
+    NSString *u = [NSString stringWithFormat:@"http://thelist.io/posts/page-%d.json", page];
+    NSURL *url = [NSURL URLWithString:u];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:[NSURLRequest requestWithURL:url] success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        if (JSON){
+            
+            if ([JSON count] > 0){
+                
+                ++page;
+                NSMutableArray *m = [NSMutableArray arrayWithArray:posts];
+                
+                for (NSDictionary *d in JSON){
+                    
+                    Post *p = [[Post alloc] initWithDict:d];
+                    [m addObject:p];
+                }
+                                  posts = m;
+                                  [self.tableView reloadData];
+                                  
+            }
+            else {
+                
+                load.text = @"No more. You avid reader!";
+            }
+            
+        }
+        else {
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self error:@"Request error. No response."];
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        
+        [self error:@"Request failed"];
+    }];
+    [op start];
+}
 -(void)error:(NSString *)error{
     
     [[[UIAlertView alloc] initWithTitle:@"Error" message:error delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
@@ -128,21 +171,44 @@
 {
 
     // Return the number of rows in the section.
-    return posts.count;
+    return posts.count+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) cell = [[PostCell alloc] initWithIdentifier:CellIdentifier longPressBlock:longPress firstCell:(indexPath.row == 0)];
-    
-    Post *p = posts[indexPath.row];
-    [cell setPost:p];
-    
-    // Configure the cell...
-    
-    return cell;
+    if (indexPath.row != posts.count){
+        
+        static NSString *CellIdentifier = @"Cell";
+        
+        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) cell = [[PostCell alloc] initWithIdentifier:CellIdentifier longPressBlock:longPress firstCell:(indexPath.row == 0)];
+        
+        Post *p = posts[indexPath.row];
+        [cell setPost:p];
+        
+        
+        // Configure the cell...
+        
+        return cell;
+    }
+    else {
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"more"];
+        if (!cell){
+            
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"more"];
+            
+            cell.textLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:17];
+            
+            UIView *bv = [[UIView alloc] initWithFrame:cell.frame];
+            bv.backgroundColor = [AppDelegate red];
+            cell.selectedBackgroundView = bv;
+        }
+        cell.textLabel.text = @"Load more...";
+        load = cell.textLabel;
+        return cell;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -191,9 +257,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@", posts[indexPath.row]);
-    BrowserVC *b = [[BrowserVC alloc] initWithPost:posts[indexPath.row]];
-    [self.navigationController pushViewController:b animated:YES];
+    if (indexPath.row == posts.count){
+        
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES]
+        ;
+        [self loadmore];
+    }
+    else {
+        BrowserVC *b = [[BrowserVC alloc] initWithPost:posts[indexPath.row]];
+        [self.navigationController pushViewController:b animated:YES];
+    }
 }
 
 @end

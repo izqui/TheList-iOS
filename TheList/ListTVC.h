@@ -15,5 +15,7 @@
     NSArray *posts;
     LongPressBlock longPress;
     BOOL pres;
+    int page;
+    UILabel *load;
 }
 @end
