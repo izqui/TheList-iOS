@@ -1,5 +1,7 @@
 ## The List for iOS
 
+[App Store Link](https://itunes.apple.com/es/app/the-list-for-ios/id597998764?l=en&mt=8)
+
 This is an iOS client for the List. Right now it is iPhone only, but if people like it I will do an iPad version. Contributions accepted.
 
 I built this in less than three hours, so there will be bugs. 
